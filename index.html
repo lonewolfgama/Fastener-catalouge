@@ -1,0 +1,2862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easy International — Premium Fasteners & Industrial Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ─────────────────────────────────────────────
+   DESIGN SYSTEM
+   Palette: Black · Charcoal · Steel · Blue only
+   No yellow. No random accents.
+───────────────────────────────────────────── */
+:root {
+  --ink:       #07080A;
+  --void:      #0C0D10;
+  --char:      #111318;
+  --steel-dk:  #181B21;
+  --steel:     #1E222B;
+  --steel-md:  #252A35;
+  --steel-lt:  #2D3340;
+  --border:    #282D38;
+  --border-lt: #323844;
+  --blue:      #1A6DD4;
+  --blue-lt:   #2280F0;
+  --blue-dim:  rgba(26,109,212,0.12);
+  --blue-line: rgba(26,109,212,0.4);
+  --white:     #FFFFFF;
+  --w90:       rgba(255,255,255,0.90);
+  --w75:       rgba(255,255,255,0.75);
+  --w55:       rgba(255,255,255,0.55);
+  --w30:       rgba(255,255,255,0.30);
+  --w12:       rgba(255,255,255,0.12);
+  --w06:       rgba(255,255,255,0.06);
+  --body-txt:  #9BA5B4;
+  --dim-txt:   #5C6475;
+
+  /* Typography */
+  --head:  'Oswald', sans-serif;
+  --sub:   'Rajdhani', sans-serif;
+  --body:  'Source Sans 3', sans-serif;
+  --mono:  'DM Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { background: #050608; }
+
+body {
+  font-family: var(--body);
+  background: #050608;
+  color: var(--body-txt);
+  font-size: 10pt;
+  line-height: 1.6;
+}
+
+/* ─── PAGE SYSTEM ─── */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 8mm;
+  position: relative;
+  overflow: hidden;
+  background: var(--char);
+}
+
+@media screen {
+  body { padding: 8mm; }
+  .page {
+    box-shadow:
+      0 0 0 1px var(--border),
+      0 12px 80px rgba(0,0,0,0.9);
+  }
+}
+
+@page { size: A4 portrait; margin: 0; }
+@media print {
+  body { background: #07080A; padding: 0; }
+  .page { margin: 0; page-break-after: always; box-shadow: none; }
+}
+
+/* ─────────────────────────────────────────────
+   COVER PAGE
+───────────────────────────────────────────── */
+.cover {
+  background: var(--void);
+  display: flex;
+  flex-direction: column;
+  min-height: 297mm;
+  position: relative;
+}
+
+/* Full-bleed hero with real fastener photo */
+.cover-hero {
+  position: relative;
+  flex: 1;
+  min-height: 190mm;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.cover-hero-photo {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  opacity: 0.45;
+  -webkit-filter: grayscale(40%) contrast(1.1) brightness(0.55);
+  filter: grayscale(40%) contrast(1.1) brightness(0.55);
+}
+
+/* Dramatic dark vignette overlays */
+.cover-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    linear-gradient(to bottom, rgba(7,8,10,0.7) 0%, transparent 30%, transparent 50%, rgba(7,8,10,0.95) 100%),
+    linear-gradient(to right, rgba(7,8,10,0.8) 0%, transparent 60%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Blue accent line at very top */
+.cover-blue-top {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--blue);
+  z-index: 10;
+}
+
+/* Header bar with logo */
+.cover-header {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  padding: 9mm 12mm 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5;
+}
+
+.cover-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 4mm;
+}
+
+.cover-logo-img {
+  width: 14mm;
+  height: 14mm;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.15);
+  object-fit: cover;
+  -webkit-filter: brightness(0.9) saturate(0.7);
+  filter: brightness(0.9) saturate(0.7);
+}
+
+.cover-brand-name {
+  font-family: var(--head);
+  font-size: 13pt;
+  font-weight: 500;
+  color: var(--white);
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.cover-brand-sub {
+  font-family: var(--mono);
+  font-size: 6pt;
+  color: var(--w55);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 1mm;
+}
+
+.cover-certs {
+  display: flex;
+  gap: 2.5mm;
+}
+
+.cert {
+  border: 1px solid var(--border-lt);
+  color: var(--w55);
+  font-family: var(--mono);
+  font-size: 6pt;
+  padding: 1mm 2.5mm;
+  letter-spacing: 0.5px;
+}
+
+/* Hero text overlay */
+.cover-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 12mm 10mm;
+  z-index: 5;
+}
+
+.cover-eyebrow {
+  font-family: var(--mono);
+  font-size: 7pt;
+  color: var(--blue-lt);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 4mm;
+  display: flex;
+  align-items: center;
+  gap: 3mm;
+}
+
+.cover-eyebrow::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--blue);
+}
+
+.cover-headline {
+  font-family: var(--head);
+  font-size: 46pt;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 0.92;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 4mm;
+}
+
+.cover-headline .hl-blue {
+  color: var(--blue-lt);
+  display: block;
+}
+
+.cover-divider-line {
+  width: 24mm;
+  height: 2px;
+  background: var(--blue);
+  margin-bottom: 5mm;
+}
+
+.cover-tagline {
+  font-family: var(--sub);
+  font-size: 10pt;
+  font-weight: 500;
+  color: var(--w55);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* Bottom info strip */
+.cover-bottom {
+  background: var(--steel-dk);
+  border-top: 1px solid var(--border);
+  padding: 6mm 12mm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cover-bottom-cats {
+  display: flex;
+  gap: 2.5mm;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.cover-cat-label {
+  font-family: var(--mono);
+  font-size: 5.5pt;
+  color: var(--dim-txt);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-right: 1mm;
+}
+
+.cover-cat {
+  font-family: var(--sub);
+  font-size: 7.5pt;
+  font-weight: 600;
+  color: var(--w55);
+  letter-spacing: 0.5px;
+  padding: 1mm 3mm;
+  border: 1px solid var(--border-lt);
+  text-transform: uppercase;
+}
+
+.cover-cat.active {
+  color: var(--blue-lt);
+  border-color: rgba(26,109,212,0.35);
+  background: var(--blue-dim);
+}
+
+.cover-bottom-right {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.cover-year {
+  font-family: var(--head);
+  font-size: 22pt;
+  font-weight: 300;
+  color: var(--border-lt);
+  letter-spacing: 3px;
+  line-height: 1;
+}
+
+.cover-edition {
+  font-family: var(--mono);
+  font-size: 5.5pt;
+  color: var(--dim-txt);
+  letter-spacing: 2px;
+  margin-top: 1mm;
+}
+
+/* ─────────────────────────────────────────────
+   INTRODUCTION PAGE
+───────────────────────────────────────────── */
+.intro-page {
+  background: var(--void);
+  display: flex;
+  flex-direction: column;
+  min-height: 297mm;
+  position: relative;
+}
+
+/* Top strip with logo */
+.intro-top {
+  background: var(--steel-dk);
+  border-bottom: 1px solid var(--border);
+  padding: 6mm 12mm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.intro-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 4mm;
+}
+
+.intro-logo-img {
+  width: 11mm;
+  height: 11mm;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-lt);
+  -webkit-filter: brightness(0.85) saturate(0.6);
+  filter: brightness(0.85) saturate(0.6);
+}
+
+.intro-brand {
+  font-family: var(--head);
+  font-size: 11pt;
+  font-weight: 500;
+  color: var(--w90);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.intro-brand span {
+  color: var(--blue-lt);
+}
+
+.intro-tag {
+  font-family: var(--mono);
+  font-size: 6pt;
+  color: var(--dim-txt);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* Full-width fastener photo panel */
+.intro-photo-panel {
+  position: relative;
+  height: 80mm;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.intro-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 55%;
+  opacity: 0.35;
+  -webkit-filter: grayscale(40%) contrast(1.15) brightness(0.5);
+  filter: grayscale(40%) contrast(1.15) brightness(0.5);
+}
+
+.intro-photo-panel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    linear-gradient(to bottom, rgba(7,8,10,0.3) 0%, transparent 30%, rgba(7,8,10,0.7) 100%),
+    linear-gradient(to right, rgba(7,8,10,0.7) 0%, transparent 50%);
+  z-index: 1;
+}
+
+/* Big statement over the photo */
+.intro-statement {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 8mm 12mm;
+}
+
+.intro-eyebrow {
+  font-family: var(--mono);
+  font-size: 6.5pt;
+  color: var(--blue-lt);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 3mm;
+}
+
+.intro-big-title {
+  font-family: var(--head);
+  font-size: 32pt;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 0.95;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.intro-big-title .blue-word {
+  color: var(--blue-lt);
+}
+
+.intro-rule {
+  width: 16mm;
+  height: 2px;
+  background: var(--blue);
+  margin-top: 4mm;
+}
+
+/* Body content */
+.intro-body {
+  flex: 1;
+  padding: 8mm 12mm;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8mm;
+}
+
+.intro-text-col {}
+
+.intro-lead {
+  font-family: var(--sub);
+  font-size: 11pt;
+  font-weight: 600;
+  color: var(--w90);
+  line-height: 1.45;
+  margin-bottom: 5mm;
+  letter-spacing: 0.2px;
+}
+
+.intro-lead span {
+  color: var(--blue-lt);
+}
+
+.intro-para {
+  font-size: 8.5pt;
+  color: var(--body-txt);
+  line-height: 1.65;
+  margin-bottom: 3.5mm;
+}
+
+.intro-pillar-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3mm;
+}
+
+.intro-pillar {
+  background: var(--steel);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--blue);
+  padding: 4mm 5mm;
+}
+
+.intro-pillar-title {
+  font-family: var(--sub);
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.5mm;
+}
+
+.intro-pillar-body {
+  font-size: 7.5pt;
+  color: var(--body-txt);
+  line-height: 1.5;
+}
+
+/* Bottom pillars bar */
+.intro-pillars-bar {
+  background: var(--steel-dk);
+  border-top: 1px solid var(--border);
+  padding: 5mm 12mm;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+}
+
+.intro-pillar-item {
+  padding: 0 4mm;
+  border-right: 1px solid var(--border);
+  text-align: center;
+}
+
+.intro-pillar-item:first-child { padding-left: 0; }
+.intro-pillar-item:last-child { border-right: none; padding-right: 0; }
+
+/* Blue icon bars — real SVG inline icons */
+.pillar-icon {
+  width: 7mm;
+  height: 7mm;
+  margin: 0 auto 2mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pillar-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: var(--blue-lt);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pillar-item-title {
+  font-family: var(--sub);
+  font-size: 7.5pt;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1mm;
+  line-height: 1.2;
+}
+
+.pillar-item-body {
+  font-size: 6.5pt;
+  color: var(--dim-txt);
+  line-height: 1.4;
+}
+
+/* Intro page footer */
+.intro-footer {
+  background: var(--ink);
+  border-top: 1px solid var(--border);
+  padding: 3mm 12mm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.intro-footer-text {
+  font-family: var(--mono);
+  font-size: 6pt;
+  color: var(--dim-txt);
+  letter-spacing: 0.5px;
+}
+
+.intro-footer-pgnum {
+  font-family: var(--head);
+  font-size: 12pt;
+  font-weight: 300;
+  color: var(--border-lt);
+  letter-spacing: 2px;
+}
+
+/* ─────────────────────────────────────────────
+   CONTENTS PAGE
+───────────────────────────────────────────── */
+
+/* Global page header/footer (interior pages) */
+.ph {
+  background: var(--steel-dk);
+  height: 11mm;
+  display: flex;
+  align-items: center;
+  padding: 0 12mm;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.ph::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 1px;
+  background: var(--blue);
+  opacity: 0.35;
+}
+
+.ph-brand {
+  font-family: var(--head);
+  font-size: 9pt;
+  font-weight: 500;
+  color: var(--w90);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.ph-brand em {
+  color: var(--blue-lt);
+  font-style: normal;
+}
+
+.ph-section {
+  font-family: var(--mono);
+  font-size: 6pt;
+  color: var(--dim-txt);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.pf {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 9mm;
+  background: var(--steel-dk);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 12mm;
+  justify-content: space-between;
+}
+
+.pf-text {
+  font-family: var(--mono);
+  font-size: 6pt;
+  color: var(--dim-txt);
+}
+
+.pf-num {
+  font-family: var(--head);
+  font-size: 13pt;
+  font-weight: 300;
+  color: var(--border-lt);
+  letter-spacing: 2px;
+}
+
+.pb {
+  padding: 9mm 12mm 14mm;
+}
+
+/* ─── SECTION TITLES ─── */
+.sec-eye {
+  font-family: var(--mono);
+  font-size: 6pt;
+  color: var(--blue-lt);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 2mm;
+}
+
+.sec-title {
+  font-family: var(--head);
+  font-size: 26pt;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.sec-rule {
+  width: 10mm;
+  height: 2px;
+  background: var(--blue);
+  margin: 3mm 0 6mm;
+}
+
+/* ─── CONTENTS PAGE ROWS ─── */
+.toc-row {
+  display: flex;
+  align-items: center;
+  gap: 5mm;
+  padding: 5mm 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.toc-row:first-of-type { border-top: 1px solid var(--border); }
+
+.toc-row-photo {
+  width: 28mm;
+  height: 18mm;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--steel);
+  border: 1px solid var(--border);
+}
+
+.toc-row-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+  -webkit-filter: grayscale(50%) contrast(1.05) brightness(0.6);
+  filter: grayscale(50%) contrast(1.05) brightness(0.6);
+}
+
+.toc-num {
+  font-family: var(--head);
+  font-size: 28pt;
+  font-weight: 300;
+  color: var(--border);
+  letter-spacing: 2px;
+  min-width: 12mm;
+  line-height: 1;
+}
+
+.toc-vr {
+  width: 1px;
+  height: 10mm;
+  background: var(--border-lt);
+  flex-shrink: 0;
+}
+
+.toc-info { flex: 1; }
+
+.toc-name {
+  font-family: var(--head);
+  font-size: 14pt;
+  font-weight: 500;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 1.5mm;
+}
+
+.toc-sub {
+  font-size: 7.5pt;
+  color: var(--dim-txt);
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+}
+
+.toc-pg {
+  font-family: var(--head);
+  font-size: 20pt;
+  font-weight: 300;
+  color: var(--border-lt);
+  letter-spacing: 2px;
+  min-width: 10mm;
+  text-align: right;
+}
+
+/* ─────────────────────────────────────────────
+   CATEGORY PAGES
+───────────────────────────────────────────── */
+.cat-banner {
+  margin: -9mm -12mm 8mm;
+  position: relative;
+  height: 38mm;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.cat-banner-photo {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  opacity: 0.22;
+  -webkit-filter: grayscale(50%) contrast(1.1) brightness(0.5);
+  filter: grayscale(50%) contrast(1.1) brightness(0.5);
+}
+
+.cat-banner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to right, rgba(7,8,10,0.95) 0%, rgba(7,8,10,0.6) 100%);
+  z-index: 1;
+}
+
+.cat-banner-content {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  padding: 0 12mm;
+  gap: 6mm;
+}
+
+.cat-num {
+  font-family: var(--head);
+  font-size: 42pt;
+  font-weight: 700;
+  color: rgba(255,255,255,0.06);
+  letter-spacing: 3px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.cat-vr {
+  width: 2px;
+  height: 16mm;
+  background: var(--blue);
+  flex-shrink: 0;
+}
+
+.cat-info {}
+
+.cat-eyebrow {
+  font-family: var(--mono);
+  font-size: 6pt;
+  color: var(--blue-lt);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 2mm;
+}
+
+.cat-name {
+  font-family: var(--head);
+  font-size: 22pt;
+  font-weight: 600;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.cat-desc {
+  font-size: 8pt;
+  color: var(--w55);
+  margin-top: 1.5mm;
+  letter-spacing: 0.3px;
+}
+
+.cat-banner-right {
+  margin-left: auto;
+  text-align: right;
+}
+
+.cat-count {
+  font-family: var(--mono);
+  font-size: 6.5pt;
+  color: var(--blue-lt);
+  letter-spacing: 1.5px;
+  border: 1px solid rgba(26,109,212,0.3);
+  padding: 2mm 4mm;
+  background: var(--blue-dim);
+}
+
+/* ─── PRODUCT GRID ─── */
+.pg3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4mm;
+  margin-bottom: 5mm;
+}
+
+.pg2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4mm;
+  margin-bottom: 5mm;
+}
+
+/* ─── PRODUCT CARD ─── */
+.pc {
+  background: var(--steel);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Subtle blue top edge */
+.pc::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--blue), transparent 60%);
+  opacity: 0.5;
+}
+
+.pc-img {
+  height: 28mm;
+  overflow: hidden;
+  position: relative;
+  background: var(--steel-md);
+  border-bottom: 1px solid var(--border);
+}
+
+.pc-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  -webkit-object-fit: contain;
+  object-position: center;
+  -webkit-filter: grayscale(20%) contrast(1.05) brightness(0.9);
+  filter: grayscale(20%) contrast(1.05) brightness(0.9);
+  padding: 4px;
+  background: var(--steel-md);
+}
+
+/* Grid texture on image */
+.pc-img::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    linear-gradient(to bottom, transparent 50%, rgba(7,8,10,0.6) 100%);
+  pointer-events: none;
+}
+
+.pc-body { padding: 4mm; }
+
+.pc-name {
+  font-family: var(--head);
+  font-size: 11pt;
+  font-weight: 600;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  line-height: 1.1;
+  margin-bottom: 1.5mm;
+}
+
+.pc-desc {
+  font-size: 7.5pt;
+  color: var(--dim-txt);
+  line-height: 1.45;
+  margin-bottom: 3.5mm;
+}
+
+.pc-specs {
+  border-top: 1px solid var(--border);
+  padding-top: 3mm;
+}
+
+.sr {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1.2mm;
+}
+
+.sk {
+  font-family: var(--mono);
+  font-size: 6pt;
+  color: var(--dim-txt);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+  min-width: 14mm;
+}
+
+.sv {
+  font-size: 7pt;
+  color: var(--w90);
+  text-align: right;
+  font-weight: 500;
+}
+
+/* ─── ALSO AVAILABLE ─── */
+.also {
+  background: var(--steel);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--blue);
+  padding: 4mm 5mm;
+  margin-bottom: 4mm;
+}
+
+.also-title {
+  font-family: var(--sub);
+  font-size: 7.5pt;
+  font-weight: 700;
+  color: var(--blue-lt);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 2.5mm;
+}
+
+.also ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5mm 5mm;
+}
+
+.also ul li {
+  font-size: 7.5pt;
+  color: var(--body-txt);
+  line-height: 1.4;
+  padding-left: 4mm;
+  position: relative;
+}
+
+.also ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--border-lt);
+  font-size: 7pt;
+}
+
+/* ─── SECTION DIVIDER (for dual-category pages) ─── */
+.sec-div {
+  background: var(--steel-dk);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin: 5mm -12mm;
+  padding: 4mm 12mm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.sec-div::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--blue);
+}
+
+.sec-div-name {
+  font-family: var(--head);
+  font-size: 13pt;
+  font-weight: 600;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.sec-div-sub {
+  font-size: 7.5pt;
+  color: var(--dim-txt);
+  margin-top: 0.5mm;
+}
+
+.sec-div-count {
+  font-family: var(--mono);
+  font-size: 6.5pt;
+  color: var(--blue-lt);
+  border: 1px solid rgba(26,109,212,0.3);
+  padding: 1.5mm 3mm;
+  background: var(--blue-dim);
+}
+
+/* Mini product tags */
+.mini-tags {
+  display: flex;
+  gap: 2mm;
+  flex-wrap: wrap;
+  margin-bottom: 4mm;
+}
+
+.mtag {
+  font-family: var(--sub);
+  font-size: 7.5pt;
+  font-weight: 600;
+  color: var(--w55);
+  border: 1px solid var(--border-lt);
+  padding: 1.5mm 3.5mm;
+  background: var(--w06);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* ─────────────────────────────────────────────
+   TECHNICAL SPECS PAGE
+───────────────────────────────────────────── */
+.tt {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 7mm;
+  font-size: 8pt;
+}
+
+.tt thead tr {
+  background: var(--steel-md);
+  border-top: 1px solid var(--border-lt);
+  border-bottom: 1px solid var(--border-lt);
+}
+
+.tt thead th {
+  padding: 3mm 4mm;
+  font-family: var(--sub);
+  font-size: 8pt;
+  font-weight: 700;
+  text-align: left;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--w55);
+}
+
+.tt tbody tr { border-bottom: 1px solid var(--border); }
+.tt tbody tr:nth-child(even) { background: var(--w06); }
+
+.tt tbody td {
+  padding: 2.5mm 4mm;
+  color: var(--body-txt);
+  vertical-align: top;
+}
+
+.tt tbody td:first-child {
+  font-weight: 600;
+  color: var(--w90);
+  font-family: var(--sub);
+  font-size: 9pt;
+  letter-spacing: 0.3px;
+}
+
+.tt .hl { background: var(--blue-dim) !important; }
+.tt .hl td { color: var(--w90); }
+.tt .hl td:first-child { color: var(--blue-lt); }
+
+.std-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4mm;
+  margin-bottom: 7mm;
+}
+
+.std-card {
+  background: var(--steel);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--blue-dim);
+  padding: 5mm;
+  text-align: center;
+}
+
+.std-code {
+  font-family: var(--head);
+  font-size: 20pt;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 2px;
+}
+
+.std-name {
+  font-size: 7.5pt;
+  color: var(--dim-txt);
+  margin-top: 1.5mm;
+  line-height: 1.3;
+}
+
+/* Finishes */
+.finish-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3mm;
+  margin-bottom: 6mm;
+}
+
+.finish-card { border: 1px solid var(--border); overflow: hidden; }
+
+.finish-swatch { height: 8mm; }
+
+.finish-info { background: var(--steel); padding: 2.5mm; }
+
+.finish-name {
+  font-family: var(--sub);
+  font-size: 7.5pt;
+  font-weight: 700;
+  color: var(--w90);
+  line-height: 1.3;
+}
+
+.finish-detail {
+  font-family: var(--mono);
+  font-size: 5.5pt;
+  color: var(--dim-txt);
+  margin-top: 0.5mm;
+}
+
+/* Packaging */
+.pack-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4mm;
+  margin-bottom: 5mm;
+}
+
+.pack-card {
+  background: var(--steel);
+  border: 1px solid var(--border);
+  padding: 5mm;
+}
+
+.pack-name {
+  font-family: var(--sub);
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 2mm;
+  padding-bottom: 2mm;
+  border-bottom: 1px solid var(--border);
+}
+
+.pack-body {
+  font-size: 7.5pt;
+  color: var(--body-txt);
+  line-height: 1.55;
+}
+
+/* ─────────────────────────────────────────────
+   CONTACT PAGE
+───────────────────────────────────────────── */
+.contact-hero {
+  position: relative;
+  height: 45mm;
+  overflow: hidden;
+  background: var(--ink);
+  margin: -9mm -12mm 8mm;
+}
+
+.contact-hero-photo {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  opacity: 0.2;
+  -webkit-filter: grayscale(60%) brightness(0.5);
+  filter: grayscale(60%) brightness(0.5);
+}
+
+.contact-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to right, rgba(7,8,10,0.95) 0%, rgba(7,8,10,0.6) 100%);
+  z-index: 1;
+}
+
+.contact-hero-content {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  padding: 0 12mm;
+}
+
+.contact-hero-title {
+  font-family: var(--head);
+  font-size: 30pt;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.contact-hero-sub {
+  font-size: 8.5pt;
+  color: var(--w55);
+  margin-top: 2mm;
+  letter-spacing: 0.5px;
+}
+
+.contact-hero-rule {
+  width: 12mm;
+  height: 2px;
+  background: var(--blue);
+  margin: 2.5mm 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4mm;
+  margin-bottom: 6mm;
+}
+
+.contact-block {
+  background: var(--steel);
+  border: 1px solid var(--border);
+  padding: 5mm;
+}
+
+.contact-block-title {
+  font-family: var(--sub);
+  font-size: 8pt;
+  font-weight: 700;
+  color: var(--blue-lt);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 3mm;
+  padding-bottom: 2mm;
+  border-bottom: 1px solid var(--border);
+}
+
+.ci { margin-bottom: 2.5mm; }
+
+.ci-label {
+  font-family: var(--mono);
+  font-size: 5.5pt;
+  color: var(--dim-txt);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.5mm;
+}
+
+.ci-val {
+  font-size: 8.5pt;
+  color: var(--w90);
+  line-height: 1.4;
+}
+
+.industries {
+  background: var(--steel);
+  border: 1px solid var(--border);
+  padding: 5mm 6mm;
+  margin-bottom: 5mm;
+}
+
+.ind-title {
+  font-family: var(--sub);
+  font-size: 8pt;
+  font-weight: 700;
+  color: var(--w55);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 3.5mm;
+}
+
+.ind-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2mm;
+}
+
+.ind-chip {
+  font-size: 7.5pt;
+  color: var(--body-txt);
+  border: 1px solid var(--border-lt);
+  padding: 1.5mm 3.5mm;
+  background: var(--w06);
+}
+
+.cta {
+  background: var(--steel);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--blue);
+  padding: 6mm 8mm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6mm;
+}
+
+.cta-left {}
+
+.cta-title {
+  font-family: var(--head);
+  font-size: 13pt;
+  font-weight: 600;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1mm;
+}
+
+.cta-sub {
+  font-size: 7.5pt;
+  color: var(--dim-txt);
+}
+
+.cta-right {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.cta-val {
+  font-family: var(--mono);
+  font-size: 8pt;
+  color: var(--blue-lt);
+  letter-spacing: 0.5px;
+  margin-bottom: 1.5mm;
+}
+
+/* HR */
+.hr { border: none; border-top: 1px solid var(--border); margin: 5mm 0; }
+
+
+/* Clickable TOC rows */
+a.toc-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+a.toc-link .toc-row {
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+a.toc-link:hover .toc-row {
+  background: var(--steel-lt);
+  border-color: var(--blue-line);
+}
+a.toc-link:hover .toc-name {
+  color: var(--blue-lt);
+}
+a.toc-link:hover .toc-pg {
+  color: var(--blue-lt);
+}
+
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!--  PAGE 1 — COVER                                     -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="page cover">
+
+  <div class="cover-blue-top"></div>
+
+  <!-- Header with logo -->
+  <div class="cover-header">
+    <div class="cover-logo-wrap">
+      <!-- Real EI logo embedded as inline SVG matching the uploaded logo identity -->
+      <img class="cover-logo-img" src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231240/Easy_International_logo_f3zsf1.png" alt="Easy International"/>
+      <div>
+        <div class="cover-brand-name">Easy International</div>
+        <div class="cover-brand-sub">Premium Fasteners &amp; Industrial Solutions</div>
+      </div>
+    </div>
+    <div class="cover-certs">
+      <span class="cert">ISO</span>
+      <span class="cert">DIN</span>
+      <span class="cert">ASTM</span>
+      <span class="cert">BS</span>
+    </div>
+  </div>
+
+  <!-- Full-bleed hero photo -->
+  <div class="cover-hero">
+    <!--
+      REPLACE WITH YOUR OWN HIGH-RESOLUTION STUDIO PHOTO
+      Recommended: Dark background, pile of hex bolts / nuts / socket screws,
+      dramatic side lighting, metallic surface reflections.
+      Example search: "industrial fasteners dark studio photography hex bolts"
+    -->
+    <img class="cover-hero-photo"
+      src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231208/Cover_photo_ab4zhz.jpg"
+      alt="Premium industrial fasteners"
+    />
+
+    <!-- Hero text -->
+    <div class="cover-text">
+      <div class="cover-eyebrow">Product Catalogue 2025</div>
+      <div class="cover-headline">
+        ENGINEERED<br>
+        TO PERFORM.
+        <span class="hl-blue">BUILT TO LAST.</span>
+      </div>
+      <div class="cover-divider-line"></div>
+      <div class="cover-tagline">Quality · Precision · Reliability</div>
+    </div>
+  </div>
+
+  <!-- Bottom strip -->
+  <div class="cover-bottom">
+    <div class="cover-bottom-cats">
+      <span class="cover-cat-label">Range</span>
+      <span class="cover-cat active">Bolts</span>
+      <span class="cover-cat">Socket Screws</span>
+      <span class="cover-cat active">Nuts</span>
+      <span class="cover-cat">Washers</span>
+      <span class="cover-cat active">Anchors</span>
+      <span class="cover-cat">Machine Screws</span>
+      <span class="cover-cat">Precision Parts</span>
+    </div>
+    <div class="cover-bottom-right">
+      <div class="cover-year">2025</div>
+      <div class="cover-edition">Edition 01</div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ════════════════════════════════════════════════════ -->
+<!--  PAGE 2 — INTRODUCTION                              -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="page intro-page">
+
+  <!-- Top brand header -->
+  <div class="intro-top">
+    <div class="intro-logo-row">
+      <img class="intro-logo-img" src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231240/Easy_International_logo_f3zsf1.png" alt="Easy International"/>
+      <div>
+        <div class="intro-brand">Easy <span>International</span></div>
+      </div>
+    </div>
+    <div class="intro-tag">Premium Fasteners &amp; Industrial Solutions</div>
+  </div>
+
+  <!-- Full-width photo with statement -->
+  <div class="intro-photo-panel">
+    <img class="intro-photo"
+      src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231208/Cover_photo_ab4zhz.jpg"
+      alt="Precision fasteners"
+    />
+    <div class="intro-statement">
+      <div class="intro-eyebrow">Introduction</div>
+      <div class="intro-big-title">
+        ENGINEERED TO PERFORM.<br>
+        <span class="blue-word">BUILT</span> TO LAST.
+      </div>
+      <div class="intro-rule"></div>
+    </div>
+  </div>
+
+  <!-- Body grid: text + pillars -->
+  <div class="intro-body">
+    <div class="intro-text-col">
+      <p class="intro-lead">
+        <span>Easy International</span> is a trusted importer, stockist and distributor of precision fasteners and industrial components — supplying manufacturers across India's most demanding sectors.
+      </p>
+      <p class="intro-para">
+        With decades of expertise and a relentless focus on quality, we deliver fastening solutions that meet the most demanding industry standards worldwide. Every product in our range is sourced from ISO-certified manufacturers across Germany, Taiwan, Japan and South Korea.
+      </p>
+      <p class="intro-para">
+        Our comprehensive range is manufactured using high-grade raw materials and conforms to international standards including DIN, ISO, ASTM, BS, IS and JIS. We continuously invest in partnerships, technical knowledge, and supply chain resilience to ensure precision, consistency and reliability in every product we deliver.
+      </p>
+      <p class="intro-para">
+        From standard fasteners to custom-engineered components, Easy International is your partner in building stronger, safer and better-connected industries. We supply with full material traceability, test certificates and third-party documentation where required.
+      </p>
+    </div>
+
+    <div class="intro-pillar-col">
+      <div class="intro-pillar">
+        <div class="intro-pillar-title">Supply Capability</div>
+        <div class="intro-pillar-body">1,000+ SKU range sourced from certified mills. Full stock in Delhi NCR with same-day availability on standard items. Import capabilities covering all major fastener types and alloys.</div>
+      </div>
+      <div class="intro-pillar">
+        <div class="intro-pillar-title">Quality Standards</div>
+        <div class="intro-pillar-body">Full compliance with DIN, ISO, ASTM, BS, IS and JIS standards. Material certificates, test reports and RoHS documentation available on request per EN 10204.</div>
+      </div>
+      <div class="intro-pillar">
+        <div class="intro-pillar-title">Industries Served</div>
+        <div class="intro-pillar-body">Automotive, construction, sanitaryware, furniture, precision engineering, HVAC, solar mounting, railways, defence and heavy engineering — with dedicated technical support.</div>
+      </div>
+      <div class="intro-pillar">
+        <div class="intro-pillar-title">Custom Engineering</div>
+        <div class="intro-pillar-body">Non-standard sizes, special alloys, bespoke coatings and OEM-branded packaging supported. Accept DWG, DXF and PDF drawings from prototype to full production volume.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom pillars bar -->
+  <div class="intro-pillars-bar">
+    <div class="intro-pillar-item">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="pillar-item-title">Premium Quality</div>
+      <div class="pillar-item-body">High-grade raw materials tested to international standards</div>
+    </div>
+    <div class="intro-pillar-item">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <div class="pillar-item-title">Advanced Supply</div>
+      <div class="pillar-item-body">Multi-country sourcing with full supply chain traceability</div>
+    </div>
+    <div class="intro-pillar-item">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <div class="pillar-item-title">Global Standards</div>
+      <div class="pillar-item-body">DIN · ISO · ASTM · BS · IS · JIS compliance</div>
+    </div>
+    <div class="intro-pillar-item">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <div class="pillar-item-title">Industry Expertise</div>
+      <div class="pillar-item-body">Automotive · Construction · Engineering · Energy</div>
+    </div>
+    <div class="intro-pillar-item">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="pillar-item-title">Customer Focus</div>
+      <div class="pillar-item-body">Long-term partnerships built on reliability and response</div>
+    </div>
+  </div>
+
+  <div class="intro-footer">
+    <div class="intro-footer-text">Easy International · New Delhi, India · www.easyinternational.co.in</div>
+    <div class="intro-footer-pgnum">01</div>
+  </div>
+
+</div>
+
+
+<!-- ════════════════════════════════════════════════════ -->
+<!--  PAGE 3 — CATALOGUE CONTENTS                        -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph">
+    <div class="ph-brand">Easy <em>International</em></div>
+    <div class="ph-section">Catalogue Contents</div>
+  </div>
+
+  <div class="pb">
+    <div class="sec-eye">Index</div>
+    <div class="sec-title">CATALOGUE STRUCTURE</div>
+    <div class="sec-rule"></div>
+
+    <!-- TOC with real product photos -->
+    <a class="toc-link" href="#page-bolts">
+      <div class="toc-row">
+      <div class="toc-num">01</div>
+      <div class="toc-vr"></div>
+      <div class="toc-row-photo">
+        <img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231283/Hex_Bolt_pne0qt.png" alt="Bolts"/>
+      </div>
+      <div class="toc-info">
+        <div class="toc-name">Bolts</div>
+        <div class="toc-sub">Hex Bolt · Carriage Bolt · U-Bolt · Foundation Bolt · Eye Bolt · Stud Bolt · Square Bolt · J-Bolt</div>
+      </div>
+      <div class="toc-pg">04</div>
+    </div>
+
+    <a class="toc-link" href="#page-socket-screws">
+      <div class="toc-row">
+      <div class="toc-num">02</div>
+      <div class="toc-vr"></div>
+      <div class="toc-row-photo">
+        <img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231291/socket_cap_screw_cujdjp.png" alt="Socket Screws"/>
+      </div>
+      <div class="toc-info">
+        <div class="toc-name">Socket Screws</div>
+        <div class="toc-sub">Socket Cap · Button Head · Countersunk · Set Screw · Low Head · Shoulder Bolt · Torx Drive</div>
+      </div>
+      <div class="toc-pg">05</div>
+    </div>
+
+    <a class="toc-link" href="#page-nuts">
+      <div class="toc-row">
+      <div class="toc-num">03</div>
+      <div class="toc-vr"></div>
+      <div class="toc-row-photo">
+        <img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231284/Hex-nut_e0i7rs.png" alt="Nuts"/>
+      </div>
+      <div class="toc-info">
+        <div class="toc-name">Nuts &amp; Washers</div>
+        <div class="toc-sub">Hex Nut · Lock Nut · Flange Nut · Castle · Cap · Wing · Plain Washer · Spring · Wave</div>
+      </div>
+      <div class="toc-pg">06</div>
+    </div>
+
+    <a class="toc-link" href="#page-machine-screws">
+      <div class="toc-row">
+      <div class="toc-num">04</div>
+      <div class="toc-vr"></div>
+      <div class="toc-row-photo">
+        <img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231291/slotted-machine-screw_ibsqf9.png" alt="Machine Screws"/>
+      </div>
+      <div class="toc-info">
+        <div class="toc-name">Machine &amp; Self-Tapping Screws</div>
+        <div class="toc-sub">Slotted · Phillips · Pozi · Sheet Metal · Wood Screw · Drywall</div>
+      </div>
+      <div class="toc-pg">07</div>
+    </div>
+
+    <a class="toc-link" href="#page-anchors">
+      <div class="toc-row">
+      <div class="toc-num">05</div>
+      <div class="toc-vr"></div>
+      <div class="toc-row-photo">
+        <img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231283/Hex_Bolt_pne0qt.png" alt="Anchors"/>
+      </div>
+      <div class="toc-info">
+        <div class="toc-name">Anchors &amp; Foundation Fasteners</div>
+        <div class="toc-sub">Wedge Anchor · Coach Screw · Eye Bolt · Drop-In Anchor · Rawl Anchor</div>
+      </div>
+      <div class="toc-pg">07</div>
+    </div>
+
+    <a class="toc-link" href="#page-technical">
+      <div class="toc-row">
+      <div class="toc-num">06</div>
+      <div class="toc-vr"></div>
+      <div class="toc-row-photo">
+        <img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231291/socket_cap_screw_cujdjp.png" alt="Technical"/>
+      </div>
+      <div class="toc-info">
+        <div class="toc-name">Technical Specifications</div>
+        <div class="toc-sub">Material Grades · International Standards · Surface Finishes · Packaging Options</div>
+      </div>
+      <div class="toc-pg">08</div>
+    </div>
+
+    <!-- Custom note -->
+    <div style="background:var(--steel);border:1px solid var(--border);border-left:2px solid var(--blue);padding:5mm 6mm;margin-top:6mm;">
+      <div style="font-family:var(--sub);font-size:8.5pt;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1px;margin-bottom:2mm;">Custom Specifications Available</div>
+      <div style="font-size:8pt;color:var(--body-txt);line-height:1.6;">
+        All products are available in custom sizes, special materials, non-standard finishes and OEM-branded packaging as per buyer specification. We accept drawings in DWG, DXF or PDF format and supply from prototype quantities to full production volumes. Contact our technical sales team for a rapid quotation.
+      </div>
+    </div>
+  </div>
+
+  <div class="pf">
+    <div class="pf-text">Easy International · www.easyinternational.co.in</div>
+    <div class="pf-num">02</div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- ════════════════════════════════════════════════════ -->
+<!--  PAGE 4 — BOLTS                                     -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="page" id="page-bolts">
+  <div class="ph">
+    <div class="ph-brand">Easy <em>International</em></div>
+    <div class="ph-section">Section 01 · Bolts</div>
+  </div>
+
+  <div class="pb">
+    <div class="cat-banner">
+      <img class="cat-banner-photo" src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231283/Hex_Bolt_pne0qt.png" alt="Bolts"/>
+      <div class="cat-banner-content">
+        <div class="cat-num">01</div>
+        <div class="cat-vr"></div>
+        <div class="cat-info">
+          <div class="cat-eyebrow">Product Category</div>
+          <div class="cat-name">Bolts</div>
+          <div class="cat-desc">High-strength structural and industrial bolts — all grades, all standards</div>
+        </div>
+        <div class="cat-banner-right"><div class="cat-count">10 Types Available</div></div>
+      </div>
+    </div>
+
+    <div class="pg3">
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231283/Hex_Bolt_pne0qt.png" alt="Hex Bolt"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Hex Bolt</div>
+          <div class="pc-desc">Standard hexagonal head bolt for structural and mechanical assembly.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS / Alloy</span></div>
+            <div class="sr"><span class="sk">Grade</span><span class="sv">4.6 / 8.8 / 10.9</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M3 – M36</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">ISO 4014, DIN 931</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231208/Carriage_bolt_yp2oee.png" alt="Carriage Bolt"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Carriage Bolt</div>
+          <div class="pc-desc">Domed head with square neck — self-locking in wood and structural connections.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS 304</span></div>
+            <div class="sr"><span class="sk">Head</span><span class="sv">Round, Square Neck</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M6 – M24</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 603, ISO 8677</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231282/Foundation_Bolt_z2mjty.png" alt="Foundation Bolt"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Foundation Bolt</div>
+          <div class="pc-desc">Embedded anchor bolt for machinery bases and structural column setting.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / HT Steel</span></div>
+            <div class="sr"><span class="sk">Grade</span><span class="sv">4.6 / 8.8</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M12 – M48</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">IS 5624, ASTM F1554</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231260/Eye_bolt_xiwkjs.png" alt="Eye Bolt"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Eye Bolt</div>
+          <div class="pc-desc">Looped head bolt for lifting, rigging and suspension. Safety-rated load capacity.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS 304/316</span></div>
+            <div class="sr"><span class="sk">Grade</span><span class="sv">Grade 4 / Grade 8</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M6 – M30</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 580, BS 4278</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231294/stud_bolt_jf0j7l.png" alt="Stud Bolt"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Stud Bolt</div>
+          <div class="pc-desc">Full or partial thread rod for flanged pressure vessel and piping connections.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">B7 / L7 / SS A193</span></div>
+            <div class="sr"><span class="sk">Thread</span><span class="sv">UNC / Metric / BSW</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M8 – M36</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">ASTM A193/A194</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231296/U_BOLT_m8ztat.png" alt="U-Bolt"/></div>
+        <div class="pc-body">
+          <div class="pc-name">U-Bolt</div>
+          <div class="pc-desc">U-shaped threaded fastener for pipe, tube and rod clamping in structural systems.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS / GI</span></div>
+            <div class="sr"><span class="sk">Thread</span><span class="sv">Metric / BSW</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">1/4" – 2" dia</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">Per drawing</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231285/J_bolt_iwjtkl.png" alt="J-Bolt"/></div>
+        <div class="pc-body">
+          <div class="pc-name">J-Bolt</div>
+          <div class="pc-desc">Curved anchor bolt for concrete embedment, clamping and foundation applications.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS / GI</span></div>
+            <div class="sr"><span class="sk">Grade</span><span class="sv">4.6 / 8.8</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M8 – M20</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">Per drawing</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231224/dom_head_bolt_nfvy1p.png" alt="Dom Head Bolt"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Dom Head Bolt</div>
+          <div class="pc-desc">Domed cup head with recessed drive for clean, flush surface fastening.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS</span></div>
+            <div class="sr"><span class="sk">Drive</span><span class="sv">Slotted / Phillips</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M4 – M16</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 603</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231292/square_head_bolt_qct2l5.png" alt="Square Head Bolt"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Square Head Bolt</div>
+          <div class="pc-desc">Four-sided head for wrench-free tightening in timber and structural connections.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS</span></div>
+            <div class="sr"><span class="sk">Grade</span><span class="sv">4.6 / 8.8</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M6 – M24</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 479</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </a>
+      </a>
+      </a>
+      </a>
+      </a>
+      </a>
+  </div>
+
+  <div class="pf">
+    <div class="pf-text">Easy International · All sizes available in custom lengths and special alloys</div>
+    <div class="pf-num">04</div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════ -->
+<!--  PAGE 5 — SOCKET SCREWS                             -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="page" id="page-socket-screws">
+  <div class="ph">
+    <div class="ph-brand">Easy <em>International</em></div>
+    <div class="ph-section">Section 02 · Socket Screws</div>
+  </div>
+
+  <div class="pb">
+    <div class="cat-banner">
+      <img class="cat-banner-photo" src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231291/socket_cap_screw_cujdjp.png" alt="Socket Screws"/>
+      <div class="cat-banner-content">
+        <div class="cat-num">02</div>
+        <div class="cat-vr"></div>
+        <div class="cat-info">
+          <div class="cat-eyebrow">Product Category</div>
+          <div class="cat-name">Socket Screws</div>
+          <div class="cat-desc">Precision internal hex drive fasteners for tight-access and high-load applications</div>
+        </div>
+        <div class="cat-banner-right"><div class="cat-count">8 Types Available</div></div>
+      </div>
+    </div>
+
+    <div class="pg3">
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231291/socket_cap_screw_cujdjp.png" alt="Socket Cap Screw"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Socket Cap Screw</div>
+          <div class="pc-desc">Cylindrical head with hexagonal socket. Industry standard for precision machinery.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">Alloy / SS 304/316</span></div>
+            <div class="sr"><span class="sk">Grade</span><span class="sv">8.8 / 10.9 / 12.9</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M2 – M24</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">ISO 4762, DIN 912</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231208/button_head_socket_screw_xwsflz.png" alt="Button Head Socket"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Button Head Socket</div>
+          <div class="pc-desc">Low-profile domed head for surface-flush fastening where clearance is limited.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">Alloy / SS 316</span></div>
+            <div class="sr"><span class="sk">Grade</span><span class="sv">10.9 / 12.9</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M2 – M16</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">ISO 7380, DIN 7380</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231209/countersunk_socket_screw_d3tpbe.png" alt="Countersunk Socket"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Countersunk Socket</div>
+          <div class="pc-desc">Flat head for flush surface mounting. 90° head angle, clean recessed finish.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">Alloy / SS 304</span></div>
+            <div class="sr"><span class="sk">Grade</span><span class="sv">10.9 / 12.9</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M3 – M20</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">ISO 10642, DIN 7991</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231282/grub_screw_qrpcoj.png" alt="Set Screw Grub"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Set Screw (Grub)</div>
+          <div class="pc-desc">Headless fully-threaded screw for locking components onto shafts. Multiple point types.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">Alloy / SS</span></div>
+            <div class="sr"><span class="sk">Point</span><span class="sv">Cup / Flat / Cone / Dog</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M2 – M24</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">ISO 4026–4029</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231286/low_head_socket_screw_hxo6wr.png" alt="Low Head Socket"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Low Head Socket Screw</div>
+          <div class="pc-desc">Reduced head height for recessed cavities and compact assemblies.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">Alloy / SS 316</span></div>
+            <div class="sr"><span class="sk">Grade</span><span class="sv">8.8 / 10.9</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M3 – M16</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 6912</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231291/shoulder_bolt_ummsfe.png" alt="Shoulder Bolt"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Shoulder Bolt</div>
+          <div class="pc-desc">Precision ground shoulder for pivot, guide pin and fixture locating applications.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">Alloy Steel / SS</span></div>
+            <div class="sr"><span class="sk">Tolerance</span><span class="sv">h6 / H7</span></div>
+            <div class="sr"><span class="sk">Shoulder</span><span class="sv">5mm – 25mm dia</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">ISO 7379, DIN 28676</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231295/Torx_socket_screw_wbpnnk.png" alt="Torx Socket Screw"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Torx Socket Screw</div>
+          <div class="pc-desc">Star drive for higher torque transmission. Tamper-resistant option available.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">Alloy / SS</span></div>
+            <div class="sr"><span class="sk">Drive</span><span class="sv">T10 – T50</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M2 – M20</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">ISO 14579</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231284/hex-socket-pipeplug_rkeyco.png" alt="Hex Socket Pipe Plug"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Hex Socket Pipe Plug</div>
+          <div class="pc-desc">Threaded port sealing plug for hydraulic, pneumatic and plumbing systems.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">Carbon Steel / SS</span></div>
+            <div class="sr"><span class="sk">Thread</span><span class="sv">BSP / BSPT / NPT</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">1/8" – 2"</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 906</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pf">
+    <div class="pf-text">Easy International · Custom lengths, alloys and finishes available on request</div>
+    <div class="pf-num">05</div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════ -->
+<!--  PAGE 6 — NUTS                                      -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="page" id="page-nuts">
+  <div class="ph">
+    <div class="ph-brand">Easy <em>International</em></div>
+    <div class="ph-section">Section 03 · Nuts</div>
+  </div>
+
+  <div class="pb">
+    <div class="cat-banner">
+      <img class="cat-banner-photo" src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231284/Hex-nut_e0i7rs.png" alt="Nuts"/>
+      <div class="cat-banner-content">
+        <div class="cat-num">03</div>
+        <div class="cat-vr"></div>
+        <div class="cat-info">
+          <div class="cat-eyebrow">Product Category</div>
+          <div class="cat-name">Nuts</div>
+          <div class="cat-desc">Full range of industrial and precision nuts for every fastening application</div>
+        </div>
+        <div class="cat-banner-right"><div class="cat-count">10 Types Available</div></div>
+      </div>
+    </div>
+
+    <div class="pg3">
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231284/Hex-nut_e0i7rs.png" alt="Hex Nut"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Hex Nut</div>
+          <div class="pc-desc">Standard six-sided nut. Most widely stocked in all grades and materials.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS / Brass</span></div>
+            <div class="sr"><span class="sk">Grade</span><span class="sv">4 / 6 / 8 / 10</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M2 – M36</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">ISO 4032, DIN 934</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231286/lock-nut-nyloc_arks4k.png" alt="Lock Nut Nyloc"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Lock Nut (Nyloc)</div>
+          <div class="pc-desc">Nylon insert prevents rotation under vibration. Single-use rated for critical joints.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS 304/316</span></div>
+            <div class="sr"><span class="sk">Insert</span><span class="sv">Nylon / All-Metal</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M3 – M24</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 985, ISO 7042</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231259/flange-nut_mrqolk.png" alt="Flange Nut"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Flange Nut</div>
+          <div class="pc-desc">Integrated flange distributes load — eliminates need for a separate washer.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS</span></div>
+            <div class="sr"><span class="sk">Flange</span><span class="sv">Serrated / Plain</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M5 – M20</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 6923, ISO 4161</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231209/castle-nut_ogakaz.png" alt="Castle Nut"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Castle Nut</div>
+          <div class="pc-desc">Slotted hex nut for use with cotter pins to positively lock in bearing and axle applications.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS</span></div>
+            <div class="sr"><span class="sk">Grade</span><span class="sv">5 / 8</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M6 – M36</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 935, ISO 7035</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231209/cap-dome-nut_jxrpd3.png" alt="Cap Dome Nut"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Cap / Dome Nut</div>
+          <div class="pc-desc">Closed dome head conceals thread end for decorative and safety applications.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS / Brass</span></div>
+            <div class="sr"><span class="sk">Grade</span><span class="sv">6 / 8</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M4 – M16</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 1587</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231295/thin-jam-nut_sgfvyc.png" alt="Thin Jam Nut"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Thin / Jam Nut</div>
+          <div class="pc-desc">Half-height nut used as a locking element against a standard nut. Low profile.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS</span></div>
+            <div class="sr"><span class="sk">Grade</span><span class="sv">04 / 05</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M3 – M30</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 439, ISO 4035</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231298/wing-nut_naetdz.png" alt="Wing Nut"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Wing Nut</div>
+          <div class="pc-desc">Hand-tightened nut with two wings for tool-free assembly and quick disassembly.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS / Brass</span></div>
+            <div class="sr"><span class="sk">Grade</span><span class="sv">—</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M4 – M12</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 315</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231298/weld-nut_ko3swx.png" alt="Weld Nut"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Weld Nut</div>
+          <div class="pc-desc">Projection-style nut for resistance welding onto sheet metal and fabricated components.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">Mild Steel</span></div>
+            <div class="sr"><span class="sk">Type</span><span class="sv">Round / Hex / Square</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M4 – M16</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 929, ISO 21670</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231293/square-nut_f5inqv.png" alt="Square Nut"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Square Nut</div>
+          <div class="pc-desc">Four-sided nut for use in T-slot tracks, channel framing and embedded applications.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS</span></div>
+            <div class="sr"><span class="sk">Grade</span><span class="sv">4 / 8</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M3 – M20</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 557, ISO 4034</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pf">
+    <div class="pf-text">Easy International · Full nut range in MS, SS 304/316, Brass and special alloys</div>
+    <div class="pf-num">06</div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════ -->
+<!--  PAGE 7 — WASHERS                                   -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="page" id="page-washers">
+  <div class="ph">
+    <div class="ph-brand">Easy <em>International</em></div>
+    <div class="ph-section">Section 04 · Washers</div>
+  </div>
+
+  <div class="pb">
+    <div class="cat-banner">
+      <img class="cat-banner-photo" src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231288/plane-washer_ztanix.png" alt="Washers"/>
+      <div class="cat-banner-content">
+        <div class="cat-num">04</div>
+        <div class="cat-vr"></div>
+        <div class="cat-info">
+          <div class="cat-eyebrow">Product Category</div>
+          <div class="cat-name">Washers</div>
+          <div class="cat-desc">Load distribution, vibration control and sealing hardware — full metric and imperial range</div>
+        </div>
+        <div class="cat-banner-right"><div class="cat-count">9 Types Available</div></div>
+      </div>
+    </div>
+
+    <div class="pg3">
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231288/plane-washer_ztanix.png" alt="Plain Washer"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Plain Washer</div>
+          <div class="pc-desc">Flat washer for load distribution under bolt heads and nuts. Form A &amp; Form B.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS / Brass / Nylon</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M2 – M36</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 125, ISO 7089</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231292/spring-washer_bsqgrp.png" alt="Spring Washer"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Spring Washer</div>
+          <div class="pc-desc">Split ring providing elastic tension to prevent bolt loosening from vibration.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">Spring Steel / SS</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M3 – M30</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 127, ISO 7090</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231297/wave-washer_yjuzlh.png" alt="Wave Washer"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Wave Washer</div>
+          <div class="pc-desc">Corrugated form for axial spring load in bearings and light preload applications.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">Spring Steel / SS</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">5mm – 80mm OD</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 137</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231293/star-tooth-washer_i7l6ff.png" alt="Star Tooth Washer"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Star / Tooth Washer</div>
+          <div class="pc-desc">Internal or external serrations bite into substrate for superior locking performance.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">Spring Steel / SS</span></div>
+            <div class="sr"><span class="sk">Type</span><span class="sv">Internal / External</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M3 – M20</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 6798</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231225/disc-belleville-washer_uy4xum.png" alt="Disc Belleville Washer"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Disc / Belleville Washer</div>
+          <div class="pc-desc">Conical spring washer for high load in limited space. Stackable for force adjustment.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">Spring Steel / SS</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">6mm – 100mm OD</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 2093</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231294/taper-washer_yvlc1i.png" alt="Taper Washer"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Taper Washer</div>
+          <div class="pc-desc">Angled washer for use on RSJ flanges and I-beams. Provides perpendicular seating.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS</span></div>
+            <div class="sr"><span class="sk">Taper</span><span class="sv">1:14 / 1:6</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M10 – M30</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 434, DIN 435</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231296/tub-washer_hvbovy.png" alt="Tub Washer"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Tub Washer</div>
+          <div class="pc-desc">Large OD rubber-bonded washer for sealing around bolt holes in sheet metal and roofing.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">Rubber / EPDM / Neoprene</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M5 – M12</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">Per specification</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231259/fender_washer_xwcht7.png" alt="Fender Washer"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Fender Washer</div>
+          <div class="pc-desc">Extra-large OD washer for thin sheet materials. Prevents pull-through at fastener hole.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS / Zinc</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M5 – M16</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">ASME B18.22.1</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231290/shim_washer_bvmsko.png" alt="Shim Washer"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Shim Washer</div>
+          <div class="pc-desc">Precision-ground thin washer for fine gap adjustment and component alignment.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS / Brass / Copper</span></div>
+            <div class="sr"><span class="sk">Thickness</span><span class="sv">0.1mm – 3mm</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 988</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pf">
+    <div class="pf-text">Easy International · Full washer range in MS, SS, Brass, Copper and Nylon</div>
+    <div class="pf-num">07</div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════ -->
+<!--  PAGE 8 — MACHINE SCREWS                            -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="page" id="page-machine-screws">
+  <div class="ph">
+    <div class="ph-brand">Easy <em>International</em></div>
+    <div class="ph-section">Section 05 · Machine &amp; Self-Tapping Screws</div>
+  </div>
+
+  <div class="pb">
+    <div class="cat-banner">
+      <img class="cat-banner-photo" src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231291/slotted-machine-screw_ibsqf9.png" alt="Machine Screws"/>
+      <div class="cat-banner-content">
+        <div class="cat-num">05</div>
+        <div class="cat-vr"></div>
+        <div class="cat-info">
+          <div class="cat-eyebrow">Product Category</div>
+          <div class="cat-name">Machine &amp; Self-Tapping Screws</div>
+          <div class="cat-desc">General purpose and specialty screws for all fastening applications</div>
+        </div>
+        <div class="cat-banner-right"><div class="cat-count">6 Types Available</div></div>
+      </div>
+    </div>
+
+    <div class="pg3">
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231291/slotted-machine-screw_ibsqf9.png" alt="Slotted Machine Screw"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Slotted Machine Screw</div>
+          <div class="pc-desc">Classic flat-slot drive for panel mounting and general assembly. Pan, CSK and round head.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS / Brass</span></div>
+            <div class="sr"><span class="sk">Head</span><span class="sv">Pan, CSK, Round, Oval</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M2 – M12</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">ISO 1207, DIN 84</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231287/phillips_machine_screw_gh6ntk.png" alt="Phillips Machine Screw"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Phillips Machine Screw</div>
+          <div class="pc-desc">Cross-recess drive for faster assembly in power tool applications.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS / Brass</span></div>
+            <div class="sr"><span class="sk">Head</span><span class="sv">Pan, CSK, Round</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M2 – M10</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">ISO 7045, DIN 7985</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231288/Pozi_Drive_Machine_Screw_y72vbu.png" alt="Pozi Drive Machine Screw"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Pozi Drive Machine Screw</div>
+          <div class="pc-desc">Pozidriv recess offers improved cam-out resistance over standard Phillips drive.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / SS / Brass</span></div>
+            <div class="sr"><span class="sk">Head</span><span class="sv">Pan, CSK, Raised CSK</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M2 – M10</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 7985 (PZ)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231289/sheet_metal_screw_cmx7i5.png" alt="Sheet Metal Screw"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Sheet Metal Screw</div>
+          <div class="pc-desc">Self-tapping thread-forming screw for thin metal sheet. Sharp point, no pre-drill required.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">Carbon Steel / SS</span></div>
+            <div class="sr"><span class="sk">Thread</span><span class="sv">AB / B / C Type</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">ST2.2 – ST6.3</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 7981, ISO 1481</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231299/wood_screw_setchz.png" alt="Wood Screw"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Wood Screw</div>
+          <div class="pc-desc">Coarse thread, tapered shank screw for solid timber, MDF and chipboard applications.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">Carbon Steel / SS / Brass</span></div>
+            <div class="sr"><span class="sk">Head</span><span class="sv">CSK / Round / Hex</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">No.4 – No.14</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 97, DIN 7997</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231225/drywall_screw_tyztej.png" alt="Drywall Screw"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Drywall Screw</div>
+          <div class="pc-desc">Fine or coarse thread with bugle head for fixing gypsum board to metal stud or timber.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">Carbon Steel — Black Phosphate</span></div>
+            <div class="sr"><span class="sk">Thread</span><span class="sv">Fine (metal) / Coarse (timber)</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">3.5×25mm – 4.2×100mm</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 18182</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pf">
+    <div class="pf-text">Easy International · All screw types available in zinc plated, SS and black oxide finish</div>
+    <div class="pf-num">08</div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════ -->
+<!--  PAGE 9 — ANCHORS & FOUNDATION FASTENERS            -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="page" id="page-anchors">
+  <div class="ph">
+    <div class="ph-brand">Easy <em>International</em></div>
+    <div class="ph-section">Section 06 · Anchors &amp; Foundation Fasteners</div>
+  </div>
+
+  <div class="pb">
+    <div class="cat-banner">
+      <img class="cat-banner-photo" src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231297/wedge-anchore_bescbi.png" alt="Anchors"/>
+      <div class="cat-banner-content">
+        <div class="cat-num">06</div>
+        <div class="cat-vr"></div>
+        <div class="cat-info">
+          <div class="cat-eyebrow">Product Category</div>
+          <div class="cat-name">Anchors &amp; Foundation Fasteners</div>
+          <div class="cat-desc">Concrete, masonry and structural anchoring systems for heavy-duty applications</div>
+        </div>
+        <div class="cat-banner-right"><div class="cat-count">5 Types Available</div></div>
+      </div>
+    </div>
+
+    <div class="pg3">
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231297/wedge-anchore_bescbi.png" alt="Wedge Anchor"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Wedge Anchor</div>
+          <div class="pc-desc">Expansion anchor for heavy-duty structural connections to solid concrete. High pull-out resistance.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">Carbon Steel / SS</span></div>
+            <div class="sr"><span class="sk">Finish</span><span class="sv">Zinc Plated / HDG</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M8 – M24</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">ASTM F1554</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231283/Hex_coach_screw_pgqm41.png" alt="Hex Coach Screw"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Hex Coach Screw</div>
+          <div class="pc-desc">Large wood screw with hex head for heavy timber and structural wood connections.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">MS / GI / SS</span></div>
+            <div class="sr"><span class="sk">Finish</span><span class="sv">Plain / HDG / SS</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M6 – M16</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 571, ISO 1479</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231286/lifting_ring_x86ssm.png" alt="Lifting Ring"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Eye Bolt / Lifting Ring</div>
+          <div class="pc-desc">Closed-loop lifting eye for crane hooks and wire ropes. Load-rated and certified.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">Forged Steel / SS</span></div>
+            <div class="sr"><span class="sk">WLL</span><span class="sv">Per size — certified</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M8 – M36</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">DIN 580, BS 4278</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231225/drop_in_anchor_zfgqyb.png" alt="Drop In Anchor"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Drop-In Anchor</div>
+          <div class="pc-desc">Internal thread anchor set flush with concrete surface. Clean, tamper-resistant installation.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">Carbon Steel / SS</span></div>
+            <div class="sr"><span class="sk">Setting</span><span class="sv">Setting tool required</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M6 – M20</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">Per specification</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-img"><img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231289/rawl_anchor_mkcbql.png" alt="Rawl Anchor"/></div>
+        <div class="pc-body">
+          <div class="pc-name">Rawl / Sleeve Anchor</div>
+          <div class="pc-desc">Sleeve-style expansion anchor for medium-duty fixings in concrete and masonry.</div>
+          <div class="pc-specs">
+            <div class="sr"><span class="sk">Material</span><span class="sv">Carbon Steel / SS</span></div>
+            <div class="sr"><span class="sk">Finish</span><span class="sv">Zinc Plated</span></div>
+            <div class="sr"><span class="sk">Size Range</span><span class="sv">M6 – M16</span></div>
+            <div class="sr"><span class="sk">Standard</span><span class="sv">ETA approved</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--steel);border:1px solid var(--border);border-left:2px solid var(--blue);padding:5mm 6mm;margin-top:2mm;">
+      <div style="font-family:var(--sub);font-size:8.5pt;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1px;margin-bottom:2mm;">Custom &amp; Special Fasteners Available</div>
+      <div style="font-size:8pt;color:var(--body-txt);line-height:1.6;">
+        All products are available in custom sizes, special materials, non-standard coatings and OEM-branded packaging. We accept drawings in DWG, DXF or PDF format and support from prototype quantities to full production volumes. Contact our technical sales team for a rapid quotation within 24 hours.
+      </div>
+    </div>
+  </div>
+
+  <div class="pf">
+    <div class="pf-text">Easy International · Anchors available in plain, zinc plated and hot-dip galvanized finish</div>
+    <div class="pf-num">09</div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════ -->
+<!--  PAGE 8 — TECHNICAL SPECIFICATIONS                  -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="page" id="page-technical">
+  <div class="ph">
+    <div class="ph-brand">Easy <em>International</em></div>
+    <div class="ph-section">Technical Specifications</div>
+  </div>
+
+  <div class="pb">
+    <div class="sec-eye">Reference</div>
+    <div class="sec-title">TECHNICAL SPECIFICATIONS</div>
+    <div class="sec-rule"></div>
+
+    <!-- Standards -->
+    <div style="font-family:var(--mono);font-size:6pt;color:var(--dim-txt);letter-spacing:2px;text-transform:uppercase;margin-bottom:3mm;">International Standards Covered</div>
+    <div class="std-grid">
+      <div class="std-card"><div class="std-code">DIN</div><div class="std-name">Deutsches Institut für Normung · Germany</div></div>
+      <div class="std-card"><div class="std-code">ISO</div><div class="std-name">International Organization for Standardization</div></div>
+      <div class="std-card"><div class="std-code">ASTM</div><div class="std-name">American Society for Testing and Materials</div></div>
+      <div class="std-card"><div class="std-code">BS</div><div class="std-name">British Standard</div></div>
+      <div class="std-card"><div class="std-code">IS</div><div class="std-name">Bureau of Indian Standards</div></div>
+      <div class="std-card"><div class="std-code">JIS</div><div class="std-name">Japanese Industrial Standards</div></div>
+    </div>
+
+    <!-- Materials table -->
+    <div style="font-family:var(--mono);font-size:6pt;color:var(--dim-txt);letter-spacing:2px;text-transform:uppercase;margin-bottom:3mm;">Material Grades &amp; Tensile Properties</div>
+    <table class="tt" style="margin-bottom:6mm;">
+      <thead>
+        <tr>
+          <th style="width:22%">Material</th>
+          <th style="width:18%">Grade / Alloy</th>
+          <th style="width:24%">Tensile Strength</th>
+          <th style="width:36%">Primary Applications</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Carbon Steel</td><td>4.6 / 5.8</td><td>400 – 580 MPa</td><td>General structural, light-duty</td></tr>
+        <tr><td>High Tensile</td><td>8.8 / 10.9 / 12.9</td><td>800 – 1220 MPa</td><td>Machinery, automotive, structural</td></tr>
+        <tr class="hl"><td>Stainless 304</td><td>A2-70 / A2-80</td><td>700 – 800 MPa</td><td>Food, chemical, marine, general</td></tr>
+        <tr><td>Stainless 316</td><td>A4-70 / A4-80</td><td>700 – 800 MPa</td><td>Marine, pharmaceutical, offshore</td></tr>
+        <tr><td>Alloy Steel B7</td><td>ASTM A193</td><td>860 – 1100 MPa</td><td>Pressure vessels, flanged joints</td></tr>
+        <tr><td>Brass</td><td>CuZn39Pb3</td><td>340 – 440 MPa</td><td>Electrical, plumbing, decorative</td></tr>
+        <tr><td>Duplex SS</td><td>2205 / 2507</td><td>620 – 730 MPa</td><td>Subsea, chemical processing</td></tr>
+      </tbody>
+    </table>
+
+    <!-- Finishes -->
+    <div style="font-family:var(--mono);font-size:6pt;color:var(--dim-txt);letter-spacing:2px;text-transform:uppercase;margin-bottom:3mm;">Surface Finishes &amp; Corrosion Performance</div>
+    <div class="finish-grid" style="margin-bottom:5mm;">
+      <div class="finish-card">
+        <div class="finish-swatch" style="background:linear-gradient(135deg,#B8BCC5,#9BA0AC);"></div>
+        <div class="finish-info"><div class="finish-name">Zinc Plated Clear</div><div class="finish-detail">72 hrs salt spray · 5–8 µm</div></div>
+      </div>
+      <div class="finish-card">
+        <div class="finish-swatch" style="background:linear-gradient(135deg,#A89030,#7A6A18);"></div>
+        <div class="finish-info"><div class="finish-name">Yellow Zinc Plated</div><div class="finish-detail">120 hrs salt spray · 5–8 µm</div></div>
+      </div>
+      <div class="finish-card">
+        <div class="finish-swatch" style="background:linear-gradient(135deg,#222428,#16181C);"></div>
+        <div class="finish-info"><div class="finish-name">Black Oxide</div><div class="finish-detail">24 hrs salt spray · 1–2 µm</div></div>
+      </div>
+      <div class="finish-card">
+        <div class="finish-swatch" style="background:linear-gradient(135deg,#303438,#1E2024);"></div>
+        <div class="finish-info"><div class="finish-name">Black Zinc</div><div class="finish-detail">96 hrs salt spray · 5–8 µm</div></div>
+      </div>
+      <div class="finish-card">
+        <div class="finish-swatch" style="background:linear-gradient(135deg,#6A7A5A,#4A5A3A);"></div>
+        <div class="finish-info"><div class="finish-name">Hot Dip Galvanized</div><div class="finish-detail">500+ hrs · 45–85 µm</div></div>
+      </div>
+      <div class="finish-card">
+        <div class="finish-swatch" style="background:linear-gradient(135deg,#7A7E88,#5A5E68);"></div>
+        <div class="finish-info"><div class="finish-name">Dacromet / Geomet</div><div class="finish-detail">500+ hrs · 4–8 µm</div></div>
+      </div>
+      <div class="finish-card">
+        <div class="finish-swatch" style="background:linear-gradient(135deg,#2A4A6A,#162A42);"></div>
+        <div class="finish-info"><div class="finish-name">Delta Coating</div><div class="finish-detail">720+ hrs · 3–5 µm</div></div>
+      </div>
+      <div class="finish-card">
+        <div class="finish-swatch" style="background:linear-gradient(135deg,#C0C4CC,#A0A4AC);"></div>
+        <div class="finish-info"><div class="finish-name">Nickel / Chrome</div><div class="finish-detail">200 hrs · 5–25 µm</div></div>
+      </div>
+    </div>
+
+    <!-- Packaging -->
+    <div style="font-family:var(--mono);font-size:6pt;color:var(--dim-txt);letter-spacing:2px;text-transform:uppercase;margin-bottom:3mm;">Packaging Options</div>
+    <div class="pack-grid">
+      <div class="pack-card">
+        <div class="pack-name">Bulk / Industrial Pack</div>
+        <div class="pack-body">Full keg (20–25 kg), half, quarter and eighth keg options. Poly bag lining inside corrugated carton. Suitable for line-side delivery and high-volume procurement.</div>
+      </div>
+      <div class="pack-card">
+        <div class="pack-name">Retail / Colour Box</div>
+        <div class="pack-body">Small colour box, 45° drawer display box, window box and blister pack. Suitable for hardware retail, after-market sales and branded distribution.</div>
+      </div>
+      <div class="pack-card">
+        <div class="pack-name">Assortment Kits</div>
+        <div class="pack-body">Mixed-SKU packs in poly bag or plastic storage box. Fit-it-Kit format available. Customisable assortment content per buyer specification.</div>
+      </div>
+      <div class="pack-card">
+        <div class="pack-name">Custom / OEM Packing</div>
+        <div class="pack-body">Private label and custom printed packaging for OEM buyers. Barcode, part number and specification labelling per customer drawing or standard.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pf">
+    <div class="pf-text">Easy International · Custom packing artwork and label design supported</div>
+    <div class="pf-num">08</div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════ -->
+<!--  PAGE 9 — CONTACT                                   -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="page" id="page-contact">
+  <div class="ph">
+    <div class="ph-brand">Easy <em>International</em></div>
+    <div class="ph-section">Contact &amp; Enquiries</div>
+  </div>
+
+  <div class="pb">
+    <div class="contact-hero">
+      <img class="contact-hero-photo"
+        src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231208/Cover_photo_ab4zhz.jpg"
+        alt="Industrial fasteners"
+      />
+      <div class="contact-hero-content">
+        <div>
+          <div style="font-family:var(--mono);font-size:6pt;color:var(--blue-lt);letter-spacing:4px;text-transform:uppercase;margin-bottom:2mm;">Get in Touch</div>
+          <div class="contact-hero-title">GET IN TOUCH</div>
+          <div class="contact-hero-rule"></div>
+          <div class="contact-hero-sub">Technical enquiries · Quotation requests · Custom specifications · Sample orders</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-block">
+        <div class="contact-block-title">Registered Office</div>
+        <div class="ci">
+          <div class="ci-label">Address</div>
+          <div class="ci-val">163, First Floor, Ansal Chambers-II<br>6-Bhikaji Cama Place<br>New Delhi – 110 066, India</div>
+        </div>
+      </div>
+      <div class="contact-block">
+        <div class="contact-block-title">Sales &amp; Enquiries</div>
+        <div class="ci">
+          <div class="ci-label">Telephone</div>
+          <div class="ci-val">+91-11-65252627 / 65252628</div>
+        </div>
+        <div class="ci">
+          <div class="ci-label">Mobile / WhatsApp</div>
+          <div class="ci-val">+91-96502 07771</div>
+        </div>
+      </div>
+      <div class="contact-block">
+        <div class="contact-block-title">Email</div>
+        <div class="ci">
+          <div class="ci-label">General Enquiries</div>
+          <div class="ci-val">info@easyinternational.co.in</div>
+        </div>
+        <div class="ci">
+          <div class="ci-label">Sales Team</div>
+          <div class="ci-val">sales@easyinternational.co.in</div>
+        </div>
+      </div>
+      <div class="contact-block">
+        <div class="contact-block-title">Online</div>
+        <div class="ci">
+          <div class="ci-label">Website</div>
+          <div class="ci-val">www.easyinternational.co.in</div>
+        </div>
+        <div class="ci">
+          <div class="ci-label">For Quotations</div>
+          <div class="ci-val">Submit part number, drawing or specification via email. Response within 24 hours.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="industries">
+      <div class="ind-title">Industries Served</div>
+      <div class="ind-chips">
+        <span class="ind-chip">Sanitaryware &amp; Plumbing</span>
+        <span class="ind-chip">Automotive &amp; Auto Parts</span>
+        <span class="ind-chip">Construction &amp; Infrastructure</span>
+        <span class="ind-chip">Furniture &amp; Interior Hardware</span>
+        <span class="ind-chip">Precision Engineering</span>
+        <span class="ind-chip">Electronics &amp; Electricals</span>
+        <span class="ind-chip">HVAC &amp; Refrigeration</span>
+        <span class="ind-chip">Heavy Engineering</span>
+        <span class="ind-chip">Agriculture Machinery</span>
+        <span class="ind-chip">Railways &amp; Infrastructure</span>
+        <span class="ind-chip">Defence &amp; Aerospace</span>
+        <span class="ind-chip">Solar &amp; Renewable Energy</span>
+      </div>
+    </div>
+
+    <div class="cta">
+      <div class="cta-left">
+        <div class="cta-title">Request a Quotation</div>
+        <div class="cta-sub">Send your part number, drawing or specification. Receive pricing and availability within 24 hours.</div>
+      </div>
+      <div class="cta-right">
+        <div class="cta-val">sales@easyinternational.co.in</div>
+        <div class="cta-val">+91-96502 07771</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pf">
+    <div class="pf-text">© 2025 Easy International · All specifications subject to change · Prices on request</div>
+    <div class="pf-num">09</div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════ -->
+<!--  PAGE 10 — BACK COVER                               -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="page" style="background:var(--void);display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:297mm;position:relative;overflow:hidden;">
+
+  <!-- Background photo -->
+  <img
+    src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231208/Cover_photo_ab4zhz.jpg"
+    style="position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;object-fit:cover;opacity:0.08;-webkit-filter:grayscale(60%) contrast(1.1) brightness(0.4);filter:grayscale(60%) contrast(1.1) brightness(0.4);"
+    alt=""
+  />
+
+  <!-- Subtle blue radial glow -->
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%, rgba(26,109,212,0.06) 0%, transparent 70%);pointer-events:none;"></div>
+
+  <!-- Blue top bar -->
+  <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--blue);"></div>
+
+  <div style="position:relative;z-index:1;text-align:center;padding:0 20mm;">
+    <!-- Logo -->
+    <img src="https://res.cloudinary.com/dsblae6eu/image/upload/v1778231240/Easy_International_logo_f3zsf1.png" alt="Easy International" style="width:52px;height:52px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 7mm;"/>
+
+    <div style="font-family:var(--head);font-size:36pt;font-weight:700;color:var(--white);letter-spacing:4px;text-transform:uppercase;line-height:1;margin-bottom:2mm;">EASY INTERNATIONAL</div>
+    <div style="font-family:var(--sub);font-size:9.5pt;font-weight:500;color:var(--dim-txt);letter-spacing:4px;text-transform:uppercase;margin-bottom:9mm;">Premium Fasteners &amp; Industrial Solutions</div>
+
+    <div style="width:30mm;height:1px;background:var(--border-lt);margin:0 auto 9mm;"></div>
+
+    <div style="font-family:var(--mono);font-size:8pt;color:var(--w55);letter-spacing:1px;margin-bottom:2mm;">www.easyinternational.co.in</div>
+    <div style="font-family:var(--mono);font-size:8pt;color:var(--w55);letter-spacing:1px;margin-bottom:2mm;">info@easyinternational.co.in</div>
+    <div style="font-family:var(--mono);font-size:8pt;color:var(--blue-lt);letter-spacing:1px;">+91-96502 07771</div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div style="position:absolute;bottom:0;left:0;right:0;padding:5mm 14mm;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+    <div style="font-family:var(--mono);font-size:6pt;color:var(--dim-txt);">© 2025 Easy International · New Delhi, India · All specifications subject to change</div>
+    <div style="display:flex;gap:2mm;">
+      <span style="border:1px solid var(--border-lt);color:var(--dim-txt);font-family:var(--mono);font-size:6pt;padding:1mm 2.5mm;">ISO</span>
+      <span style="border:1px solid var(--border-lt);color:var(--dim-txt);font-family:var(--mono);font-size:6pt;padding:1mm 2.5mm;">DIN</span>
+      <span style="border:1px solid var(--border-lt);color:var(--dim-txt);font-family:var(--mono);font-size:6pt;padding:1mm 2.5mm;">ASTM</span>
+      <span style="border:1px solid var(--border-lt);color:var(--dim-txt);font-family:var(--mono);font-size:6pt;padding:1mm 2.5mm;">BS</span>
+    </div>
+  </div>
+
+</div>
+
+
+</body>
+</html>
